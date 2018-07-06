@@ -277,6 +277,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/07/Mac-Could-not-create-usr-local-Cellar-的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Viktor">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Viktor's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/07/Mac-Could-not-create-usr-local-Cellar-的问题/" itemprop="url">
+                  Mac Could not create /usr/local/Cellar 的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-07 00:39:59 / Modified: 01:09:57" itemprop="dateCreated datePublished" datetime="2018-07-07T00:39:59+08:00">2018-07-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近需要安装 jq,理所当然就使用了如下命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jq</span><br></pre></td></tr></table></figure>
+<p>但是却没有直接安装成功，提示了如下错误信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: Could not create /usr/local/Cellar</span><br><span class="line">Check you have permission to write to /usr/local</span><br></pre></td></tr></table></figure>
+<p>之前也使用 brew 安装其他软件包，没有遇到这种错误。但是它既然提示我没有权限，我便给自己的账号加上权限准备再试试。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $(whoami):admin /usr/local</span><br></pre></td></tr></table></figure>
+<p>发现还是提示了错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown: /usr/local: Operation not permitted</span><br></pre></td></tr></table></figure>
+<p>网上找了一下，发现是 os x 10.11 开始，系统使用了 Rootless 机制，目的为了防止恶意软件修改 Mac 上受保护的的文件和文件夹。其中包括了 <code>/System</code>, <code>/usr</code>, <code>/bin</code>, <code>/sbin</code> 以及 OS X 预装的应用。详情可参见苹果<a href="https://support.apple.com/en-us/HT204899" target="_blank" rel="noopener">官方文档</a>。</p>
+<p>准备关掉 Rootless 来安装我需要的东西。重启 Mac,重启的同时按住 <code>Command</code> + <code>R</code>，进入恢复系统。在顶部菜单 <code>实用工具</code> 里选择 <code>Terminal</code>，输入如下命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil disable</span><br></pre></td></tr></table></figure>
+<p>重启即可生效。如果需要恢复默认的，进入恢复系统在 <code>Terminal</code> 执行以下命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil enable</span><br></pre></td></tr></table></figure>
+<p>如果没有特别情况，还是建议打开 Rootless，保护自己的系统安全，有需要时才关闭。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/07/Spring-boot-笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -628,7 +781,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-06-15 00:44:15" itemprop="dateModified" datetime="2018-06-15T00:44:15+08:00">2018-06-15</time>
+                <time title="Modified: 2018-06-16 15:16:47" itemprop="dateModified" datetime="2018-06-16T15:16:47+08:00">2018-06-16</time>
               
             
           </span>
@@ -663,7 +816,7 @@
       
         
           
-            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p><strong>Windows</strong><br>点击<a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">这里</a>下载安装。<br><strong>Mac</strong><br>通过 <a href="http://mxcl.github.com/homebrew/" target="_blank" rel="noopener">Homebrew</a> 安装。</p>
+            <h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p><strong>Windows</strong><br>点击<a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">这里</a>下载安装。<br><strong>Mac</strong><br>通过 <a href="http://mxcl.github.com/homebrew/" target="_blank" rel="noopener">Homebrew</a> 安装。</p>
 <h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p><strong>Windows</strong><br>点击<a href="https://nodejs.org/en/" target="_blank" rel="noopener">这里</a>下载安装。</p>
 <p><strong>Mac</strong><br>cURL:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash</span><br></pre></td></tr></table></figure></p>
 <p>Wget:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash</span><br></pre></td></tr></table></figure></p>
@@ -680,7 +833,7 @@
 <p>直接三下回车键，找到用户目录下 <code>.ssh</code> 文件夹中的 <code>id_rsa.pub</code> 文件，复制其内容。</p>
 <p>打开 <a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH and GPG keys</a>，点击 <code>New SSH key</code> 按钮，<code>Title</code> 随意填，将复制的内容粘贴到 <code>Key</code> 输入框内，点击 <code>Add SSH key</code> 保存。</p>
 <h3 id="部署到-Github"><a href="#部署到-Github" class="headerlink" title="部署到 Github"></a>部署到 Github</h3><p>执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
-<p>再打开自己的仓库会发现有新的 commit，打开 http://<your username="">.github.io 可以在线访问你的博客。</your></p>
+<p>再打开自己的仓库会发现有新的 commit，打开 <a href="https://YourUsername.github.io" target="_blank" rel="noopener">https://YourUsername.github.io</a> 可以在线访问你的博客。</p>
 
           
         
@@ -919,7 +1072,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -942,7 +1095,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
