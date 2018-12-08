@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="打开 CMD 输入：查看当前机器 ip 等信息 ipconfig重启 IIS iisreset 打开运行窗口（win+R）输入：打开 IIS inetmgr打开 cmd cmd打开计算器 calc打开远程连接 mstsc">
-<meta name="keywords" content="cmd">
+  <meta name="description" content="git config设置/显示仓库配置/全局配置，如果仓库配置未进行设置，会默认使用全局配置  --add 新增一行配置 --get 获取指定 Key 的值，如果不存在这个 Key 返回错误 -l 显示所有的配置/键值对 --global 全局配置模式，可与其他参数配合使用  比如，设置全局用户名，即 commit 显示的名字，如果仓库没有特别指定，会默认使用全局配置git config --gl">
+<meta name="keywords" content="Git,Git 命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用 cmd 命令">
-<meta property="og:url" content="http://yoursite.com/2018/05/31/常用-cmd-命令/index.html">
+<meta property="og:title" content="Git 常用命令">
+<meta property="og:url" content="http://yoursite.com/2018/12/08/Git-常用命令/index.html">
 <meta property="og:site_name" content="Viktor&#39;s blog">
-<meta property="og:description" content="打开 CMD 输入：查看当前机器 ip 等信息 ipconfig重启 IIS iisreset 打开运行窗口（win+R）输入：打开 IIS inetmgr打开 cmd cmd打开计算器 calc打开远程连接 mstsc">
+<meta property="og:description" content="git config设置/显示仓库配置/全局配置，如果仓库配置未进行设置，会默认使用全局配置  --add 新增一行配置 --get 获取指定 Key 的值，如果不存在这个 Key 返回错误 -l 显示所有的配置/键值对 --global 全局配置模式，可与其他参数配合使用  比如，设置全局用户名，即 commit 显示的名字，如果仓库没有特别指定，会默认使用全局配置git config --gl">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-05T13:45:22.237Z">
+<meta property="og:updated_time" content="2018-12-08T10:52:06.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用 cmd 命令">
-<meta name="twitter:description" content="打开 CMD 输入：查看当前机器 ip 等信息 ipconfig重启 IIS iisreset 打开运行窗口（win+R）输入：打开 IIS inetmgr打开 cmd cmd打开计算器 calc打开远程连接 mstsc">
+<meta name="twitter:title" content="Git 常用命令">
+<meta name="twitter:description" content="git config设置/显示仓库配置/全局配置，如果仓库配置未进行设置，会默认使用全局配置  --add 新增一行配置 --get 获取指定 Key 的值，如果不存在这个 Key 返回错误 -l 显示所有的配置/键值对 --global 全局配置模式，可与其他参数配合使用  比如，设置全局用户名，即 commit 显示的名字，如果仓库没有特别指定，会默认使用全局配置git config --gl">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/31/常用-cmd-命令/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/08/Git-常用命令/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>常用 cmd 命令 | Viktor's blog</title>
+  <title>Git 常用命令 | Viktor's blog</title>
   
 
 
@@ -281,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/31/常用-cmd-命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/08/Git-常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Viktor">
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">常用 cmd 命令
+          <h1 class="post-title" itemprop="name headline">Git 常用命令
               
             
           </h1>
@@ -323,24 +323,12 @@
                 
               
 
-              <time title="Created: 2018-05-31 22:55:07" itemprop="dateCreated datePublished" datetime="2018-05-31T22:55:07+08:00">2018-05-31</time>
+              <time title="Created: 2018-12-08 17:34:43 / Modified: 18:52:06" itemprop="dateCreated datePublished" datetime="2018-12-08T17:34:43+08:00">2018-12-08</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-06-05 21:45:22" itemprop="dateModified" datetime="2018-06-05T21:45:22+08:00">2018-06-05</time>
               
             
           </span>
@@ -373,8 +361,34 @@
       
 
       
-        <p>打开 CMD 输入：<br>查看当前机器 ip 等信息 <code>ipconfig</code><br>重启 IIS <code>iisreset</code></p>
-<p>打开运行窗口（<code>win</code>+<code>R</code>）输入：<br>打开 IIS <code>inetmgr</code><br>打开 cmd <code>cmd</code><br>打开计算器 <code>calc</code><br>打开远程连接 <code>mstsc</code></p>
+        <h3 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h3><p>设置/显示仓库配置/全局配置，如果仓库配置未进行设置，会默认使用全局配置</p>
+<ul>
+<li><code>--add</code> 新增一行配置</li>
+<li><code>--get</code> 获取指定 Key 的值，如果不存在这个 Key 返回错误</li>
+<li><code>-l</code> 显示所有的配置/键值对</li>
+<li><code>--global</code> 全局配置模式，可与其他参数配合使用</li>
+</ul>
+<p>比如，设置全局用户名，即 commit 显示的名字，如果仓库没有特别指定，会默认使用全局配置<br><code>git config --global --add user.name &lt;username&gt;</code></p>
+<h3 id="git-clean"><a href="#git-clean" class="headerlink" title="git clean"></a>git clean</h3><p>移除本地未跟踪的文件</p>
+<ul>
+<li><code>-f</code> 移除本地所有未跟踪的文件</li>
+<li><code>-d</code> 移除本地所有未跟踪的文件夹</li>
+<li><code>-n</code> 仅显示会被移除的文件，不会真的移除文件</li>
+</ul>
+<h3 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h3><p>重置当前的 HEAD 为指定的状态</p>
+<ul>
+<li><code>--hard</code> 丢弃所有已跟踪的文件从上次 commit 的改动</li>
+</ul>
+<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><p>显示工作树的状态 </p>
+<ul>
+<li><code>-s</code> 以简短格式显示信息</li>
+<li><code>--long</code> 以详细格式显示信息，默认值</li>
+</ul>
+<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p>记录仓库的改动</p>
+<ul>
+<li><code>-m</code> 使用输入的内容作为提交的信息</li>
+</ul>
+<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><p>把本地的 commit 推到远程仓库，并更新远程仓库</p>
 
       
     </div>
@@ -395,7 +409,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cmd/" rel="tag"># cmd</a>
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+            <a href="/tags/Git-命令/" rel="tag"># Git 命令</a>
           
         </div>
       
@@ -408,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/26/hexo-github-搭建博客/" rel="next" title="hexo + github 搭建博客">
-                <i class="fa fa-chevron-left"></i> hexo + github 搭建博客
+              <a href="/2018/07/07/Mac-Could-not-create-usr-local-Cellar-的问题/" rel="next" title="Mac Could not create /usr/local/Cellar 的问题">
+                <i class="fa fa-chevron-left"></i> Mac Could not create /usr/local/Cellar 的问题
               </a>
             
           </div>
@@ -417,10 +433,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/07/Spring-boot-笔记/" rel="prev" title="Spring boot 笔记">
-                Spring boot 笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -469,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -540,6 +561,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-config"><span class="nav-number">1.</span> <span class="nav-text">git config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-clean"><span class="nav-number">2.</span> <span class="nav-text">git clean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-reset"><span class="nav-number">3.</span> <span class="nav-text">git reset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-status"><span class="nav-number">4.</span> <span class="nav-text">git status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-commit"><span class="nav-number">5.</span> <span class="nav-text">git commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-push"><span class="nav-number">6.</span> <span class="nav-text">git push</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
