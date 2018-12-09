@@ -224,6 +224,14 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
@@ -363,36 +371,22 @@
       
         
           
-            <h3 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h3><p>设置/显示仓库配置/全局配置，如果仓库配置未进行设置，会默认使用全局配置</p>
-<ul>
-<li><code>--add</code> 新增一行配置</li>
-<li><code>--get</code> 获取指定 Key 的值，如果不存在这个 Key 返回错误</li>
-<li><code>-l</code> 显示所有的配置/键值对</li>
-<li><code>--global</code> 全局配置模式，可与其他参数配合使用</li>
-</ul>
-<p>比如，设置全局用户名，即 commit 显示的名字，如果仓库没有特别指定，会默认使用全局配置<br><code>git config --global --add user.name &lt;username&gt;</code></p>
-<h3 id="git-clean"><a href="#git-clean" class="headerlink" title="git clean"></a>git clean</h3><p>移除本地未跟踪的文件</p>
-<ul>
-<li><code>-f</code> 移除本地所有未跟踪的文件</li>
-<li><code>-d</code> 移除本地所有未跟踪的文件夹</li>
-<li><code>-n</code> 仅显示会被移除的文件，不会真的移除文件</li>
-</ul>
-<h3 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h3><p>重置当前的 HEAD 为指定的状态</p>
-<ul>
-<li><code>--hard</code> 丢弃所有已跟踪的文件从上次 commit 的改动</li>
-</ul>
-<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><p>显示工作树的状态 </p>
-<ul>
-<li><code>-s</code> 以简短格式显示信息</li>
-<li><code>--long</code> 以详细格式显示信息，默认值</li>
-</ul>
-<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p>记录仓库的改动</p>
-<ul>
-<li><code>-m</code> 使用输入的内容作为提交的信息</li>
-</ul>
-<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><p>把本地的 commit 推到远程仓库，并更新远程仓库</p>
+          git config设置/显示仓库配置/全局配置，如果仓库配置未进行设置，会默认使用全局配置
 
-          
+--add 新增一行配置
+--get 获取指定 Key 的值，如果不存在这个 Key 返回错误
+-l 显示所有的配置/键值对
+--global 全局配置模式，可与其他参数配合使用
+
+比如，设置全局用户名，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/08/Git-常用命令/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -530,22 +524,18 @@
       
         
           
-            <p>最近需要安装 jq,理所当然就使用了如下命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install jq</span><br></pre></td></tr></table></figure>
-<p>但是却没有直接安装成功，提示了如下错误信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: Could not create /usr/local/Cellar</span><br><span class="line">Check you have permission to write to /usr/local</span><br></pre></td></tr></table></figure>
-<p>之前也使用 brew 安装其他软件包，没有遇到这种错误。但是它既然提示我没有权限，我便给自己的账号加上权限准备再试试。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R $(whoami):admin /usr/local</span><br></pre></td></tr></table></figure>
-<p>发现还是提示了错误。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown: /usr/local: Operation not permitted</span><br></pre></td></tr></table></figure>
-<p>网上找了一下，发现是 os x 10.11 开始，系统使用了 Rootless 机制，目的为了防止恶意软件修改 Mac 上受保护的的文件和文件夹。其中包括了 <code>/System</code>, <code>/usr</code>, <code>/bin</code>, <code>/sbin</code> 以及 OS X 预装的应用。详情可参见苹果<a href="https://support.apple.com/en-us/HT204899" target="_blank" rel="noopener">官方文档</a>。</p>
-<p>准备关掉 Rootless 来安装我需要的东西。重启 Mac,重启的同时按住 <code>Command</code> + <code>R</code>，进入恢复系统。在顶部菜单 <code>实用工具</code> 里选择 <code>Terminal</code>，输入如下命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil disable</span><br></pre></td></tr></table></figure>
-<p>重启即可生效。如果需要恢复默认的，进入恢复系统在 <code>Terminal</code> 执行以下命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil enable</span><br></pre></td></tr></table></figure>
-<p>如果没有特别情况，还是建议打开 Rootless，保护自己的系统安全，有需要时才关闭。</p>
-
-          
+          最近需要安装 jq,理所当然就使用了如下命令。
+1brew install jq
+但是却没有直接安装成功，提示了如下错误信息。
+12Error: Could not create /usr/local/CellarCheck you have permission to write to /usr/
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/07/Mac-Could-not-create-usr-local-Cellar-的问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -679,8 +669,15 @@
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/07/Spring-boot-笔记/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -830,10 +827,17 @@
       
         
           
-            <p>打开 CMD 输入：<br>查看当前机器 ip 等信息 <code>ipconfig</code><br>重启 IIS <code>iisreset</code></p>
-<p>打开运行窗口（<code>win</code>+<code>R</code>）输入：<br>打开 IIS <code>inetmgr</code><br>打开 cmd <code>cmd</code><br>打开计算器 <code>calc</code><br>打开远程连接 <code>mstsc</code></p>
+          打开 CMD 输入：查看当前机器 ip 等信息 ipconfig重启 IIS iisreset
+打开运行窗口（win+R）输入：打开 IIS inetmgr打开 cmd cmd打开计算器 calc打开远程连接 mstsc
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/31/常用-cmd-命令/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -983,26 +987,17 @@
       
         
           
-            <h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p><strong>Windows</strong><br>点击<a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">这里</a>下载安装。<br><strong>Mac</strong><br>通过 <a href="http://mxcl.github.com/homebrew/" target="_blank" rel="noopener">Homebrew</a> 安装。</p>
-<h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p><strong>Windows</strong><br>点击<a href="https://nodejs.org/en/" target="_blank" rel="noopener">这里</a>下载安装。</p>
-<p><strong>Mac</strong><br>cURL:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash</span><br></pre></td></tr></table></figure></p>
-<p>Wget:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash</span><br></pre></td></tr></table></figure></p>
-<p>Nvm 安装后，重启终端安装 Node.js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvm install stable</span><br></pre></td></tr></table></figure></p>
-<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>Git、Node.js 安装后，可以通过 npm 安装 Hexo。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
-<h3 id="本地使用"><a href="#本地使用" class="headerlink" title="本地使用"></a>本地使用</h3><p>初始化博客<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;your blog directory&gt;</span><br></pre></td></tr></table></figure></p>
-<p>生成页面等元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></p>
-<p>本地预览<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
-<p>执行完这条命令，可以打开 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 进行本地预览。</p>
-<h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>如果没有 Github 账号，<a href="https://github.com/" target="_blank" rel="noopener">在这</a>注册一个账号。创建一个公共仓库，名字为如下格式：<br><code>&lt;your username&gt;.github.io</code></p>
-<h3 id="安装部署插件"><a href="#安装部署插件" class="headerlink" title="安装部署插件"></a>安装部署插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<h3 id="配置-Git"><a href="#配置-Git" class="headerlink" title="配置 Git"></a>配置 Git</h3><p>打开文件 <code>_config.yml</code> 进行配置，将 <code>repo</code> 字段换成自己的仓库地址，<code>branch</code> 是分支，默认可以设置为 <code>master</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:viktoryi/viktoryi.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<h3 id="生成-SSH-Key"><a href="#生成-SSH-Key" class="headerlink" title="生成 SSH Key"></a>生成 SSH Key</h3><p>输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的 GitHub 注册邮箱&quot;</span><br></pre></td></tr></table></figure></p>
-<p>直接三下回车键，找到用户目录下 <code>.ssh</code> 文件夹中的 <code>id_rsa.pub</code> 文件，复制其内容。</p>
-<p>打开 <a href="https://github.com/settings/keys" target="_blank" rel="noopener">SSH and GPG keys</a>，点击 <code>New SSH key</code> 按钮，<code>Title</code> 随意填，将复制的内容粘贴到 <code>Key</code> 输入框内，点击 <code>Add SSH key</code> 保存。</p>
-<h3 id="部署到-Github"><a href="#部署到-Github" class="headerlink" title="部署到 Github"></a>部署到 Github</h3><p>执行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
-<p>再打开自己的仓库会发现有新的 commit，打开 <a href="https://YourUsername.github.io" target="_blank" rel="noopener">https://YourUsername.github.io</a> 可以在线访问你的博客。</p>
-
-          
+          安装 GitWindows点击这里下载安装。Mac通过 Homebrew 安装。
+安装 Node.jsWindows点击这里下载安装。
+MaccURL:1$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/insta
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/26/hexo-github-搭建博客/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1152,14 +1147,21 @@
       
         
           
-            <h2 id="好用的-Chrome-插件"><a href="#好用的-Chrome-插件" class="headerlink" title="好用的 Chrome 插件"></a>好用的 Chrome 插件</h2><ul>
-<li>Grammarly</li>
-<li>Adblock Plus</li>
-<li>The Great Suspender</li>
-<li>Tampermonkey</li>
-</ul>
+          好用的 Chrome 插件
+Grammarly
+Adblock Plus
+The Great Suspender
+Tampermonkey
+
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/25/Chrome-插件/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1251,7 +1253,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -1270,7 +1272,7 @@
                     
                     <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
